@@ -97,7 +97,7 @@ void Moodlamp::update(long now){
   }
   
   // Cycle MODE
-	if(MODE_CYCLE){
+	if(_mode == MODE_CYCLE){
 	  if((now - _cycleLastUpdate) >= _cycleUpdateTime){      
 		_cycleUpdate();
 
