@@ -6,6 +6,10 @@ Installation
 Like normal arduino libraries.
 [More info](http://www.arduino.cc/en/Hacking/Libraries)
 
+Demo viceo
+---------
+[https://vimeo.com/58527228](https://vimeo.com/58527228)
+
 Features
 --------
 - This library uses millis to trigger each update so is non blocking.
