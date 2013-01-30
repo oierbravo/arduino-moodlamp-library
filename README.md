@@ -6,7 +6,7 @@ Installation
 Like normal arduino libraries.
 [More info](http://www.arduino.cc/en/Hacking/Libraries)
 
-Demo viceo
+Demo video
 ---------
 [https://vimeo.com/58527228](https://vimeo.com/58527228)
 
