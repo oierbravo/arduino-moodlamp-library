@@ -138,13 +138,54 @@ void Moodlamp::setMode(Mode mode){
 void Moodlamp::setCycleUpdateTime(long time){
 	_cycleUpdateTime = time;
 }
+
+/*! \brief Sets red color amount. Doesn't affect other colors.
+
+	\param value  Amount to set.
+ */
+void Moodlamp::setRed(int value){
+   int* color = _getFinalColor();
+   color[0] = value;
+   setColor(color);
+}
+
+/*! \brief Sets green color amount. Doesn't affect other colors.
+
+	\param value  Amount to set.
+ */
+void Moodlamp::setGreen(int value){
+   int* color = _getFinalColor();
+   color[1] = value;
+   setColor(color);
+}
+
+/*! \brief Sets blue color amount. Doesn't affect other colors.
+
+	\param value  Amount to set.
+ */
+void Moodlamp::setBlue(int value){
+   int* color = _getFinalColor();
+   color[2] = value;
+   setColor(color);
+}
+
+/*! \brief Sets red,green and blue color amount. 
+
+	\param red  Red amount to set.
+	\param green  Green amount to set.
+	\param blue  Blue amount to set.
+ */
+void Moodlamp::setRGB(int red,int green, int blue){
+   int color[3] = {red,green,blue};
+   setColor(color);
+}
 /*! \brief Cycle updater function, changes and sets a color from the sequence.
  */
 void Moodlamp::_cycleUpdate(){
 //Number of colors.
-  int sequence_num_colors = 16;
+  int sequence_num_colors = 9;
    //Color sequence.
-  int* cycleSequence[16] = {COLOR_RED,COLOR_GREEN,COLOR_BLUE,COLOR_WHITE,COLOR_YELLOW,COLOR_PURPLE,COLOR_ORANGE,COLOR_CYAN,COLOR_BLACK,COLOR_RED,COLOR_BLACK,COLOR_BLUE,COLOR_BLACK,COLOR_GREEN,COLOR_BLACK,COLOR_WHITE}; 
+  int* cycleSequence[9] = {COLOR_RED,COLOR_GREEN,COLOR_BLUE,COLOR_WHITE,COLOR_YELLOW,COLOR_PURPLE,COLOR_ORANGE,COLOR_CYAN,COLOR_WHITE}; 
 
   setColor( cycleSequence[_currentCycleIndex] );
   _currentCycleIndex++;
@@ -166,4 +207,13 @@ void Moodlamp::_updateLed()
   for (int i = 0;i<3;i++){
     analogWrite(pinMapping[i], _currentValues[i]);
   }
+}
+
+int* Moodlamp::_getFinalColor()
+{
+  int color[] = {0,0,0};
+  for(int i = 0;i<3;i++){
+    color[i] = _finalValues[i];
+  }
+  return color;
 }

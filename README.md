@@ -67,7 +67,19 @@ Features
 - Moodlamp::MODE_MANUAL
 - Moodlamp::MODE_CYCLE
 
+## Functions
+- setColor(predefined color)
+- setRGB(int red, int green, int blue)
+- setRed(int value)
+- setGeen(int value)
+- setBlue(int value)
+- setMode(predefined mode)
+- setUpdateTime(long time)
+- setCycleUpdateTime(long time)
 
+LICENSE
+------
+LGPL. See LICENSE.txt
 
 Autor
 -----

@@ -10,9 +10,6 @@
   See file LICENSE.txt for further informations on licensing terms.
 */
 
-
-Author: Oier Bravo Urtasun - 2013
-*/
 #ifndef Moodlamp_h
 #define Moodlamp_h
 
@@ -47,6 +44,10 @@ class Moodlamp
 		Mode getMode() const { return _mode; };
 		void setCycleUpdateTime(long time);
 		long getCycleUpdateTime() const { return _cycleUpdateTime; };
+		void setRed(int value);
+		void setGreen(int value);
+		void setBlue(int value);
+		void setRGB(int red,int green, int blue);
 		
 	  private:
 		int _redPin;
@@ -81,5 +82,6 @@ class Moodlamp
 		void _cycleUpdate();
 		
 		void _updateLed();
+		int* _getFinalColor();
 	};
 #endif
